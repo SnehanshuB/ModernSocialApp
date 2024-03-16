@@ -10,20 +10,22 @@ class User {
   final List following;
   final String isVerified;
   final List<dynamic> notifications;
+  final String phoneNumber; // Added phone number field
+  final String phoneNumberVerified; // Added phone number verified field
 
-  const User(
-    {
-      required this.username,
-      required this.uid,
-      required this.photoUrl,
-      required this.email,
-      required this.bio,
-      required this.followers,
-      required this.following,
-      required this.isVerified,
-      required this.notifications
-    }
-  );
+  const User({
+    required this.username,
+    required this.uid,
+    required this.photoUrl,
+    required this.email,
+    required this.bio,
+    required this.followers,
+    required this.following,
+    required this.isVerified,
+    required this.notifications,
+    required this.phoneNumber, // Initialize phone number in constructor
+    required this.phoneNumberVerified, // Initialize phone number verified in constructor
+  });
 
   static User fromSnap(DocumentSnapshot snap) {
     var snapshot = snap.data() as Map<String, dynamic>;
@@ -37,19 +39,23 @@ class User {
       followers: snapshot["followers"],
       following: snapshot["following"],
       isVerified: snapshot["isVerified"],
-      notifications: snapshot["notifications"]
+      notifications: snapshot["notifications"],
+      phoneNumber: snapshot["phoneNumber"], // Extract phone number from snapshot
+      phoneNumberVerified: snapshot["phoneNumberVerified"], // Extract phone number verified status from snapshot
     );
   }
 
   Map<String, dynamic> toJson() => {
-        "username": username,
-        "uid": uid,
-        "email": email,
-        "photoUrl": photoUrl,
-        "bio": bio,
-        "followers": followers,
-        "following": following,
-        "isVerified": isVerified,
-        "notifications": notifications
-      };
+    "username": username,
+    "uid": uid,
+    "email": email,
+    "photoUrl": photoUrl,
+    "bio": bio,
+    "followers": followers,
+    "following": following,
+    "isVerified": isVerified,
+    "notifications": notifications,
+    "phoneNumber": phoneNumber, // Include phone number in JSON
+    "phoneNumberVerified": phoneNumberVerified, // Include phone number verified status in JSON
+  };
 }

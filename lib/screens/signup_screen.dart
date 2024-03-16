@@ -23,6 +23,7 @@ class _SignupScreenState extends State<SignupScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _bioController = TextEditingController();
+  final TextEditingController _phoneNumberController = TextEditingController();
   bool _isLoading = false;
   Uint8List? _image;
 
@@ -32,6 +33,7 @@ class _SignupScreenState extends State<SignupScreen> {
     _emailController.dispose();
     _passwordController.dispose();
     _usernameController.dispose();
+    _phoneNumberController.dispose();
   }
 
   void signUpUser() async {
@@ -46,6 +48,7 @@ class _SignupScreenState extends State<SignupScreen> {
         password: _passwordController.text,
         username: _usernameController.text,
         bio: _bioController.text,
+        phoneNumber: _phoneNumberController.text,
         file: _image!);
     // if string returned is sucess, user has been created
     if (res == "success") {
@@ -159,6 +162,14 @@ class _SignupScreenState extends State<SignupScreen> {
                 textInputType: TextInputType.text,
                 textEditingController: _passwordController,
                 isPass: true,
+              ),
+              const SizedBox(
+                height: 24,
+              ),
+              TextFieldInput(
+                hintText: 'Enter your phone number',
+                textInputType: TextInputType.text,
+                textEditingController: _phoneNumberController,
               ),
               const SizedBox(
                 height: 24,
