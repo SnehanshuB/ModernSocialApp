@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:modernsocialapp/responsive/mobile_screen_layout.dart';
 
 import '../utils/colors.dart';
 import '../widgets/post_card.dart';
@@ -15,7 +16,7 @@ class PostDetailScreen extends StatelessWidget {
         title: Text(postData['username'] ?? 'Post'), // Fallback to 'Post' if username is not available
         backgroundColor: mobileBackgroundColor,
       ),
-      body: PostCard(snap: postData), // Use PostCard to display the post
+      body: SingleChildScrollView(child: PostCard(snap: postData)), // Use PostCard to display the post
     );
   }
 }

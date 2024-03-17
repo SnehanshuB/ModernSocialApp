@@ -20,26 +20,6 @@ class _FeedScreenState extends State<FeedScreen> {
     return Scaffold(
       backgroundColor:
           width > webScreenSize ? webBackgroundColor : mobileBackgroundColor,
-      // appBar: width > webScreenSize
-      //     ? null
-      //     : AppBar(
-      //         backgroundColor: mobileBackgroundColor,
-      //         centerTitle: false,
-      //         title: SvgPicture.asset(
-      //           'assets/ic_instagram2.svg',
-      //           color: primaryColor,
-      //           height: 32,
-      //         ),
-      //         actions: [
-      //           IconButton(
-      //             icon: const Icon(
-      //               Icons.messenger_outline,
-      //               color: primaryColor,
-      //             ),
-      //             onPressed: () {},
-      //           ),
-      //         ],
-      //       ),
       body: StreamBuilder(
         stream: FirebaseFirestore.instance.collection('posts').snapshots(),
         builder: (context,
