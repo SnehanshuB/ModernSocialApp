@@ -13,6 +13,8 @@ import 'package:modernsocialapp/secrets.dart';
 import 'package:modernsocialapp/utils/colors.dart';
 import 'package:provider/provider.dart';
 
+import 'notifications_api.dart';
+
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
 
